@@ -22,6 +22,7 @@ if (isset($_GET['film'])) {
     $info = file("$movieDir/info.txt", FILE_IGNORE_NEW_LINES);
     $overview = file("$movieDir/overview.txt", FILE_IGNORE_NEW_LINES);
     $backgroundImage = glob("$movieDir/background.{jpg,png}", GLOB_BRACE)[0] ?? '';
+	echo "<pre>Debug: Start of Script - Background Image: $backgroundImage</pre>";
     $thumbnailImage = glob("$movieDir/thumbnail.{jpg,png}", GLOB_BRACE)[0] ?? '';
 
     // Extract information from info.txt
@@ -131,7 +132,9 @@ if (isset($_GET['film'])) {
 	</style>
 
 </head>
-<body>
+<body style="background-image: url('<?= htmlspecialchars($backgroundImage) ?>');">
+
+
 	<a href="index.php" class="back-button">Back To Search</a>
     <header>
         <h1><?= htmlspecialchars($title) ?></h1>
