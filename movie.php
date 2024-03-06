@@ -1,9 +1,9 @@
 <?php
 
-//ini_set('display_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-echo "<pre>Debug: Start of Script</pre>";
+//echo "<pre>Debug: Start of Script</pre>";
 
 // Check if the 'film' query parameter is set
 if (isset($_GET['film'])) {
@@ -22,7 +22,7 @@ if (isset($_GET['film'])) {
     $info = file("$movieDir/info.txt", FILE_IGNORE_NEW_LINES);
     $overview = file("$movieDir/overview.txt", FILE_IGNORE_NEW_LINES);
     $backgroundImage = glob("$movieDir/background.{jpg,png}", GLOB_BRACE)[0] ?? '';
-	echo "<pre>Debug: Start of Script - Background Image: $backgroundImage</pre>";
+	//echo "<pre>Debug: Start of Script - Background Image: $backgroundImage</pre>";
     $thumbnailImage = glob("$movieDir/thumbnail.{jpg,png}", GLOB_BRACE)[0] ?? '';
 
     // Extract information from info.txt
@@ -38,7 +38,7 @@ if (isset($_GET['film'])) {
 		
 	}
 	foreach ($castImages as $cast) {
-    echo "<pre>Debug: Cast Image Path - " . htmlspecialchars($cast['image']) . "</pre>";
+    //echo "<pre>Debug: Cast Image Path - " . htmlspecialchars($cast['image']) . "</pre>";
 	}
 
 
@@ -54,7 +54,7 @@ if (isset($_GET['film'])) {
 	}
 
 } else {
-    echo "<pre>Debug: Movie not specified.</pre>";
+    //echo "<pre>Debug: Movie not specified.</pre>";
     exit;
 }
 ?>
