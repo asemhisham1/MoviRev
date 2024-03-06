@@ -32,9 +32,10 @@ if (isset($_GET['film'])) {
     $castNames = file("$movieDir/cast.txt", FILE_IGNORE_NEW_LINES);
 	$castImages = [];
 	foreach ($castNames as $castName) {
-		$castFileName = strtolower(str_replace(' ', ' ', $castName));
+		$castFileName = strtolower(str_replace(' ', '_', $castName));
 		$castImage = glob("cast/{$castFileName}.{jpg,png}", GLOB_BRACE)[0] ?? '';
 		$castImages[] = ['name' => $castName, 'image' => $castImage];
+		
 	}
 	foreach ($castImages as $cast) {
     echo "<pre>Debug: Cast Image Path - " . htmlspecialchars($cast['image']) . "</pre>";
