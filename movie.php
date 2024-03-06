@@ -36,6 +36,10 @@ if (isset($_GET['film'])) {
 		$castImage = glob("cast/{$castFileName}.{jpg,png}", GLOB_BRACE)[0] ?? '';
 		$castImages[] = ['name' => $castName, 'image' => $castImage];
 	}
+	foreach ($castImages as $cast) {
+    echo "<pre>Debug: Cast Image Path - " . htmlspecialchars($cast['image']) . "</pre>";
+	}
+
 
 	// Read watch data from CSV and their images
 	$watchData = [];
