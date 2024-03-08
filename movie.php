@@ -10,7 +10,9 @@ if (isset($_GET['film'])) {
     $movie = $_GET['film'];
 
     // Path to the movie directory
-    $movieDir = "movies/$movie";
+    $movie = strtolower($movie); // Normalize movie name to lowercase
+	$movieDir = "movies/$movie"; // Use the normalized movie name
+
 
     // Check for the existence of required files
     if (!file_exists("$movieDir/info.txt") || !file_exists("$movieDir/overview.txt")) {

@@ -1,6 +1,6 @@
 <?php
 if (isset($_GET['film']) && !empty(trim($_GET['film']))) {
-    $movie = trim($_GET['film']);
+    $movie = strtolower(trim($_GET['film']));
     $movieDir = "movies/" . $movie;
 
     if (is_dir($movieDir) && file_exists($movieDir . "/info.txt")) {
